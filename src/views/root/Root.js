@@ -1,6 +1,6 @@
 import React from 'react';
-import Button from 'Components/Button/Button';
-import GlobalStyle from 'Themes/GlobalStyle';
+import Button from 'components/atoms/Button/Button';
+import GlobalStyle from 'theme/GlobalStyle';
 
 function Root() {
   return (

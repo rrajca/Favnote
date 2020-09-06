@@ -1,5 +1,5 @@
 import React from 'react';
-import Button from 'Components/Button/Button';
+import Button from 'components/atoms/Button/Button';
 import { withKnobs, select } from '@storybook/addon-knobs';
 
 export default {
