@@ -6,10 +6,10 @@ const Button = styled.button`
   width: 220px;
   border: none;
   border-radius: 50px;
-  background-color: ${({ color }) => color || 'hsl(49, 100%, 58%)'};
-  font-weight: 600;
+  background-color: ${({ theme }) => theme.primary};
   font-family: 'Montserrat', sans-serif;
   font-size: 16px;
+  font-weight: ${({ theme }) => theme.bold};
   text-transform: uppercase;
 
   ${({ secondary }) =>
@@ -17,7 +17,7 @@ const Button = styled.button`
     css`
       height: 30px;
       width: 105px;
-      background-color: #e6e6e6;
+      background-color: ${({ theme }) => theme.grey200};
       font-size: 10px;
     `}
 `;
