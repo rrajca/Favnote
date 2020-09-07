@@ -6,6 +6,8 @@ import { theme } from 'theme/mainTheme';
 
 import Button from 'components/atoms/Button/Button';
 import Heading from 'components/atoms/Heading/Heading';
+import Paragraph from 'components/atoms/Paragraph/Paragraph';
+import Input from 'components/atoms/Input/Input';
 
 function Root() {
   return (
@@ -18,6 +20,10 @@ function Root() {
           <Button secondary>Remove</Button>
           <Heading big>Notes</Heading>
           <Heading>Small header</Heading>
+          <Paragraph>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nemo, distinctio?
+          </Paragraph>
+          <Input type="text" placeholder="Login" />
         </>
       </ThemeProvider>
     </div>

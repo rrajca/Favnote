@@ -1,22 +1,19 @@
 import styled, { css } from 'styled-components';
 
 const Button = styled.button`
-  padding: 0;
-  height: 47px;
-  width: 220px;
+  padding: 15px 40px;
   border: none;
   border-radius: 50px;
   background-color: ${({ theme }) => theme.primary};
-  font-family: 'Montserrat', sans-serif;
-  font-size: 16px;
-  font-weight: ${({ theme }) => theme.bold};
+  font-family: ${({ theme }) => theme.fontFamily};
+  font-size: ${({ theme }) => theme.fontSize.s};
+  font-weight: ${({ theme }) => theme.fontWeight.bold};
   text-transform: uppercase;
 
   ${({ secondary }) =>
     secondary &&
     css`
-      height: 30px;
-      width: 105px;
+      padding: 10px 30px;
       background-color: ${({ theme }) => theme.grey200};
       font-size: 10px;
     `}
