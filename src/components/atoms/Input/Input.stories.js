@@ -1,10 +1,9 @@
 import React from 'react';
 import Input from 'components/atoms/Input/Input';
-import { withKnobs } from '@storybook/addon-knobs';
 
 export default {
   title: 'Input',
-  decorators: [withKnobs],
+  component: Input,
 };
 
 export const input = () => {
