@@ -23,7 +23,8 @@ function Root() {
           <Paragraph>
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nemo, distinctio?
           </Paragraph>
-          <Input type="text" placeholder="Login" />
+          <Input type="text" placeholder="login" />
+          <Input type="text" placeholder="search" search />
         </>
       </ThemeProvider>
     </div>
