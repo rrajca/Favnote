@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import magnifyingIcon from 'assets/magnifying_glass.svg';
+import magnifyingIcon from 'assets/icons/magnifying_glass.svg';
 
 const Input = styled.input`
   padding: 15px 40px;
@@ -22,7 +22,7 @@ const Input = styled.input`
       font-size: ${({ theme }) => theme.fontSize.xs};
       background-image: url(${magnifyingIcon});
       background-size: 15px;
-      background-position: 15px 50%;
+      background-position: 15px 55%;
       background-repeat: no-repeat;
     `}
 `;
