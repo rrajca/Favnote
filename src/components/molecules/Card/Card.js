@@ -1,9 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
+
 import Heading from 'components/atoms/Heading/Heading';
 import Paragraph from 'components/atoms/Paragraph/Paragraph';
 import Button from 'components/atoms/Button/Button';
+
+import linkIcon from 'assets/icons/link.svg';
 
 const StyledWrapper = styled.div`
   display: flex;
@@ -15,8 +18,13 @@ const StyledWrapper = styled.div`
 `;
 
 const InnerWrapper = styled.div`
+  position: relative;
   padding: 15px 30px;
   background-color: ${({ activeColor, theme }) => (activeColor ? theme[activeColor] : 'white')};
+
+  :first-of-type {
+    z-index: 9999;
+  }
 
   ${({ flex }) =>
     flex &&
@@ -39,11 +47,38 @@ const DateInfo = styled(Paragraph)`
   font-weight: ${({ theme }) => theme.fontWeight.bold};
 `;
 
+const TwitterAvatar = styled.img`
+  position: absolute;
+  right: 25px;
+  top: 25px;
+  width: 86px;
+  height: 86px;
+  border: 5px solid ${({ theme }) => theme.twitter};
+  border-radius: 50%;
+`;
+
+const StyledLinkButton = styled.a`
+  display: block;
+  position: absolute;
+  right: 25px;
+  top: 50%;
+  width: 47px;
+  height: 47px;
+  border-radius: 50%;
+  background: white url(${linkIcon}) no-repeat;
+  background-position: 50%;
+  transform: translateY(-50%);
+`;
+
 const Card = ({ cardType }) => (
   <StyledWrapper>
     <InnerWrapper activeColor={cardType}>
       <StyledHeading>Hello Roman</StyledHeading>
       <DateInfo>03.07.2020</DateInfo>
+      {cardType === 'twitter' && <TwitterAvatar src="https://unavatar.now.sh/twitter/kamiraper" />}
+      {cardType === 'article' && (
+        <StyledLinkButton href="https://github.com/rrajca" target="_blank" />
+      )}
     </InnerWrapper>
     <InnerWrapper flex>
       <Paragraph>
