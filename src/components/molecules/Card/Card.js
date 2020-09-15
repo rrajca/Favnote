@@ -38,7 +38,7 @@ const InnerWrapper = styled.div`
 `;
 
 const StyledHeading = styled(Heading)`
-  margin: 0 0 5px 0;
+  margin: 0;
 `;
 
 const DateInfo = styled(Paragraph)`
