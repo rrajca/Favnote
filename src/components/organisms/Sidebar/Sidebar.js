@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import styled, { css } from 'styled-components';
 
@@ -20,7 +21,7 @@ const StyledWrapper = styled.nav`
   padding: 58px 40px 35px;
   width: 153px;
   height: 100vh;
-  background-color: ${({ theme }) => theme.note};
+  background-color: ${({ theme, activeColor }) => theme[activeColor]};
 `;
 
 const StyledLogo = styled(NavLink)`
@@ -58,9 +59,9 @@ const StyledLogoutButton = styled(ButtonIcon)`
   background-size: 80%;
 `;
 
-const Sidebar = () => {
+const Sidebar = ({ pageType }) => {
   return (
-    <StyledWrapper>
+    <StyledWrapper activeColor={pageType}>
       <StyledLogo as={NavLink} exact to="/" />
       <StyledLinksList>
         <li>
@@ -79,3 +80,11 @@ const Sidebar = () => {
 };
 
 export default Sidebar;
+
+Sidebar.propTypes = {
+  pageType: PropTypes.oneOf(['note', 'twitter', 'article']),
+};
+
+Sidebar.defaultProps = {
+  pageType: 'note',
+};

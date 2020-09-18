@@ -7,15 +7,15 @@ import Articles from 'views/Articles';
 
 function Root() {
   return (
-    <MainTemplate>
-      <Router>
+    <Router>
+      <MainTemplate>
         <Switch>
           <Route exact path="/" component={Notes} />
           <Route path="/twitters" component={Twitters} />
           <Route path="/articles" component={Articles} />
         </Switch>
-      </Router>
-    </MainTemplate>
+      </MainTemplate>
+    </Router>
   );
 }
 
