@@ -17,7 +17,7 @@ const Background = styled.div`
 `;
 
 export default {
-  title: 'ButtonIcon',
+  title: 'Atoms/ButtonIcon',
   component: ButtonIcon,
   decorators: [
     Story => (
@@ -32,7 +32,7 @@ export const light = () => {
   return <ButtonIcon icon={lightIcon} />;
 };
 export const lightActive = () => {
-  return <ButtonIcon icon={lightIcon} active />;
+  return <ButtonIcon icon={lightIcon} className="active" />;
 };
 export const logout = () => {
   return <ButtonIcon icon={logoutIcon} />;

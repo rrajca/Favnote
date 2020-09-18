@@ -45,6 +45,7 @@ const DateInfo = styled(Paragraph)`
   margin: 0;
   font-size: ${({ theme }) => theme.fontSize.xs};
   font-weight: ${({ theme }) => theme.fontWeight.bold};
+  line-height: normal;
 `;
 
 const TwitterAvatar = styled.img`
