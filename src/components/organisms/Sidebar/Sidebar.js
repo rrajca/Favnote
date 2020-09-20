@@ -71,7 +71,7 @@ const Sidebar = ({ pageType }) => {
           <StyledLinkItem as={NavLink} to="/twitters" icon={twitterIcon} />
         </li>
         <li>
-          <StyledLinkItem as={NavLink} to="/articles" icon={lightIcon} light />
+          <StyledLinkItem as={NavLink} to="/articles" icon={lightIcon} light="true" />
         </li>
       </StyledLinksList>
       <StyledLogoutButton as={NavLink} to="/login" icon={logoutIcon} />
