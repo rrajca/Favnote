@@ -44,5 +44,5 @@ export const twitter = () => {
   return <ButtonIcon icon={twitterIcon} />;
 };
 export const twitterActive = () => {
-  return <ButtonIcon icon={twitterIcon} active />;
+  return <ButtonIcon icon={twitterIcon} className="active" />;
 };
