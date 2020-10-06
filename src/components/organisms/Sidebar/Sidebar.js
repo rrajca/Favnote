@@ -65,7 +65,7 @@ const Sidebar = ({ pageType }) => {
       <StyledLogo as={NavLink} exact to="/" />
       <StyledLinksList>
         <li>
-          <StyledLinkItem as={NavLink} exact to="/" icon={pencilIcon} />
+          <StyledLinkItem as={NavLink} to="/notes" icon={pencilIcon} />
         </li>
         <li>
           <StyledLinkItem as={NavLink} to="/twitters" icon={twitterIcon} />
@@ -82,9 +82,9 @@ const Sidebar = ({ pageType }) => {
 export default Sidebar;
 
 Sidebar.propTypes = {
-  pageType: PropTypes.oneOf(['note', 'twitter', 'article']),
+  pageType: PropTypes.oneOf(['notes', 'twitters', 'articles']),
 };
 
 Sidebar.defaultProps = {
-  pageType: 'note',
+  pageType: 'notes',
 };

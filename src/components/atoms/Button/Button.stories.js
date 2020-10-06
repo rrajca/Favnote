@@ -9,8 +9,8 @@ export default {
 
 export const primary = () => {
   const label = 'Colors';
-  const options = ['note', 'twitter', 'article'];
-  const defaultValue = 'note';
+  const options = ['notes', 'twitters', 'articles'];
+  const defaultValue = 'notes';
   const groupId = 'GROUP-ID1';
 
   const value = select(label, options, defaultValue, groupId);

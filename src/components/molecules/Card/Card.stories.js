@@ -10,8 +10,8 @@ export const note = () => {
   return <Card />;
 };
 export const twitter = () => {
-  return <Card cardType="twitter" />;
+  return <Card cardType="twitters" />;
 };
 export const article = () => {
-  return <Card cardType="article" />;
+  return <Card cardType="articles" />;
 };

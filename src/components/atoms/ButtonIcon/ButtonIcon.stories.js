@@ -13,7 +13,7 @@ const Background = styled.div`
   align-items: center;
   width: 400px;
   height: 400px;
-  background-color: ${({ theme }) => theme.note};
+  background-color: ${({ theme }) => theme.notes};
 `;
 
 export default {
