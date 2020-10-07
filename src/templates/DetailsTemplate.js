@@ -1,24 +1,69 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 import UserPageTemplate from 'templates/UserPageTemplate';
+import Heading from 'components/atoms/Heading/Heading';
+import Paragraph from 'components/atoms/Paragraph/Paragraph';
+import Button from 'components/atoms/Button/Button';
+
+const StyledWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  padding: 130px 115px 130px 115px;
+  max-width: 780px;
+`;
+
+const StyledHeading = styled(Heading)`
+  margin: 0;
+`;
+
+const DateInfo = styled(Paragraph)`
+  margin: 0;
+  font-weight: ${({ theme }) => theme.fontWeight.bold};
+  line-height: normal;
+`;
+
+const Message = styled(Paragraph)`
+  margin: 35px 0 45px;
+`;
+
+const DeleteButton = styled.button`
+  margin-top: 17px;
+  font-family: ${({ theme }) => theme.fontFamily};
+  font-size: ${({ theme }) => theme.fontSize.s};
+  font-weight: ${({ theme }) => theme.fontWeight.bold};
+  text-decoration: underline;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+`;
 
 const DetailsTemplate = ({ pageType }) => {
   return (
     <UserPageTemplate pageType={pageType}>
-      <h1>Note</h1>
-      <p>
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iusto sequi atque dolore cum
-        exercitationem aliquid non asperiores expedita. Doloremque provident, a fugiat nihil
-        voluptatibus nulla! Labore voluptates aperiam officiis animi quaerat expedita hic accusamus,
-        enim perspiciatis ullam ratione ipsam molestiae esse aspernatur. Consequatur reprehenderit
-        minus ducimus nesciunt quidem illum, facilis enim ea nobis consequuntur porro placeat
-        laborum quas in, animi, velit quod sint perspiciatis. Recusandae est nemo, ipsum dicta
-        aperiam nobis eius quas optio necessitatibus ipsa sit temporibus nisi corrupti commodi
-        dolorum doloribus! Nulla, possimus! Magnam, fugit voluptatibus ipsum nobis eum provident
-        officia hic excepturi consectetur! Esse qui consectetur quod?
-      </p>
-      <Link to="/">go back</Link>
+      <StyledWrapper>
+        <StyledHeading as="h1" big>
+          Note
+        </StyledHeading>
+        <DateInfo>CREATED – 25/03/2019</DateInfo>
+        <Message>
+          Born and raised in Illinois, Davis left his studies at the Juilliard School in New York
+          City and made his professional debut as a member of saxophonist Charlie Parker&apos;s
+          bebop quintet from 1944 to 1948. Shortly after, he recorded the Birth of the Cool sessions
+          for Capitol Records, which were instrumental to the development of cool jazz. In the early
+          1950s, Miles Davis recorded some of the earliest hard bop music while on Prestige Records
+          but did so haphazardly due to a heroin addiction. After a widely acclaimed comeback
+          performance at the Newport Jazz Festival in 1955, he signed a long-term contract with
+          Columbia Records and recorded the 1957 album &apos;Round About Midnight.[2] It was his
+          first work with saxophonist John Coltrane and bassist Paul Chambers, key members of the
+          sextet he led into the early 1960s. During this period, he alternated between orchestral
+          jazz collaborations with arranger Gil Evans, such as the Spanish-influenced Sketches of
+          Spain (1960), and band recordings, such as Milestones (1958) and Kind of Blue (1959).
+        </Message>
+        <Button activeColor={pageType}>close / save</Button>
+        <DeleteButton>remove note</DeleteButton>
+      </StyledWrapper>
     </UserPageTemplate>
   );
 };

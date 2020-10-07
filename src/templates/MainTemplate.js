@@ -7,10 +7,10 @@ import { theme } from 'theme/mainTheme';
 
 function MainTemplate({ children }) {
   return (
-    <div>
+    <>
       <GlobalStyle />
       <ThemeProvider theme={theme}>{children}</ThemeProvider>
-    </div>
+    </>
   );
 }
 
