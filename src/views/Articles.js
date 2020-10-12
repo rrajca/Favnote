@@ -30,5 +30,17 @@ const mapStateToProps = state => {
 export default connect(mapStateToProps)(Articles);
 
 Articles.propTypes = {
-  articles: PropTypes.arrayOf(PropTypes.object).isRequired,
+  articles: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      title: PropTypes.string.isRequired,
+      created: PropTypes.string.isRequired,
+      content: PropTypes.string.isRequired,
+      articleUrl: PropTypes.string.isRequired,
+    }),
+  ),
+};
+
+Articles.defaultProps = {
+  articles: [],
 };
