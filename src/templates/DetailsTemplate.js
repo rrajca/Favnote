@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import UserPageTemplate from 'templates/UserPageTemplate';
@@ -39,34 +40,53 @@ const DeleteButton = styled.button`
   cursor: pointer;
 `;
 
-const DetailsTemplate = ({ pageType }) => {
-  return (
-    <UserPageTemplate pageType={pageType}>
-      <StyledWrapper>
-        <StyledHeading as="h1" big>
-          Note
-        </StyledHeading>
-        <DateInfo>CREATED – 25/03/2019</DateInfo>
-        <Message>
-          Born and raised in Illinois, Davis left his studies at the Juilliard School in New York
-          City and made his professional debut as a member of saxophonist Charlie Parker&apos;s
-          bebop quintet from 1944 to 1948. Shortly after, he recorded the Birth of the Cool sessions
-          for Capitol Records, which were instrumental to the development of cool jazz. In the early
-          1950s, Miles Davis recorded some of the earliest hard bop music while on Prestige Records
-          but did so haphazardly due to a heroin addiction. After a widely acclaimed comeback
-          performance at the Newport Jazz Festival in 1955, he signed a long-term contract with
-          Columbia Records and recorded the 1957 album &apos;Round About Midnight.[2] It was his
-          first work with saxophonist John Coltrane and bassist Paul Chambers, key members of the
-          sextet he led into the early 1960s. During this period, he alternated between orchestral
-          jazz collaborations with arranger Gil Evans, such as the Spanish-influenced Sketches of
-          Spain (1960), and band recordings, such as Milestones (1958) and Kind of Blue (1959).
-        </Message>
-        <Button activeColor={pageType}>close / save</Button>
-        <DeleteButton>remove note</DeleteButton>
-      </StyledWrapper>
-    </UserPageTemplate>
-  );
-};
+class DetailsTemplate extends Component {
+  state = {
+    redirect: false,
+  };
+
+  handleCloseButtonClick = () => {
+    this.setState({ redirect: true });
+  };
+
+  render() {
+    const { pageType } = this.props;
+    const { redirect } = this.state;
+
+    if (redirect) {
+      return <Redirect to={`/${pageType}`} />;
+    }
+    return (
+      <UserPageTemplate pageType={pageType}>
+        <StyledWrapper>
+          <StyledHeading as="h1" big>
+            Note
+          </StyledHeading>
+          <DateInfo>CREATED – 25/03/2019</DateInfo>
+          <Message>
+            Born and raised in Illinois, Davis left his studies at the Juilliard School in New York
+            City and made his professional debut as a member of saxophonist Charlie Parker&apos;s
+            bebop quintet from 1944 to 1948. Shortly after, he recorded the Birth of the Cool
+            sessions for Capitol Records, which were instrumental to the development of cool jazz.
+            In the early 1950s, Miles Davis recorded some of the earliest hard bop music while on
+            Prestige Records but did so haphazardly due to a heroin addiction. After a widely
+            acclaimed comeback performance at the Newport Jazz Festival in 1955, he signed a
+            long-term contract with Columbia Records and recorded the 1957 album &apos;Round About
+            Midnight.[2] It was his first work with saxophonist John Coltrane and bassist Paul
+            Chambers, key members of the sextet he led into the early 1960s. During this period, he
+            alternated between orchestral jazz collaborations with arranger Gil Evans, such as the
+            Spanish-influenced Sketches of Spain (1960), and band recordings, such as Milestones
+            (1958) and Kind of Blue (1959).
+          </Message>
+          <Button activeColor={pageType} onClick={this.handleCloseButtonClick}>
+            close / save
+          </Button>
+          <DeleteButton>remove note</DeleteButton>
+        </StyledWrapper>
+      </UserPageTemplate>
+    );
+  }
+}
 
 export default DetailsTemplate;
 
