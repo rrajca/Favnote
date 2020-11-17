@@ -6,9 +6,9 @@ import Card from 'components/molecules/Card/Card';
 
 const Notes = ({ notes }) => {
   return (
-    <GridTemplate pageType="notes">
+    <GridTemplate>
       {notes.map(({ title, created, content, id }) => (
-        <Card key={id} cardType="notes" title={title} created={created} content={content} id={id} />
+        <Card key={id} title={title} created={created} content={content} id={id} />
       ))}
     </GridTemplate>
   );

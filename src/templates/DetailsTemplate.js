@@ -6,6 +6,7 @@ import UserPageTemplate from 'templates/UserPageTemplate';
 import Heading from 'components/atoms/Heading/Heading';
 import Paragraph from 'components/atoms/Paragraph/Paragraph';
 import Button from 'components/atoms/Button/Button';
+import withContext from 'hoc/withContext';
 
 const StyledWrapper = styled.div`
   display: flex;
@@ -50,14 +51,14 @@ class DetailsTemplate extends Component {
   };
 
   render() {
-    const { pageType } = this.props;
+    const { pageContext } = this.props;
     const { redirect } = this.state;
 
     if (redirect) {
-      return <Redirect to={`/${pageType}`} />;
+      return <Redirect to={`/${pageContext}`} />;
     }
     return (
-      <UserPageTemplate pageType={pageType}>
+      <UserPageTemplate>
         <StyledWrapper>
           <StyledHeading as="h1" big>
             Note
@@ -78,7 +79,7 @@ class DetailsTemplate extends Component {
             Spanish-influenced Sketches of Spain (1960), and band recordings, such as Milestones
             (1958) and Kind of Blue (1959).
           </Message>
-          <Button activeColor={pageType} onClick={this.handleCloseButtonClick}>
+          <Button activeColor={pageContext} onClick={this.handleCloseButtonClick}>
             close / save
           </Button>
           <DeleteButton>remove note</DeleteButton>
@@ -88,12 +89,12 @@ class DetailsTemplate extends Component {
   }
 }
 
-export default DetailsTemplate;
+export default withContext(DetailsTemplate);
 
 DetailsTemplate.propTypes = {
-  pageType: PropTypes.oneOf(['notes', 'twitters', 'articles']),
+  pageContext: PropTypes.oneOf(['notes', 'twitters', 'articles']),
 };
 
 DetailsTemplate.defaultProps = {
-  pageType: 'notes',
+  pageContext: 'notes',
 };

@@ -6,6 +6,7 @@ import { routes } from 'routes/index';
 class DetailsPage extends Component {
   state = {
     pageType: 'notes',
+    id: 1,
   };
 
   componentDidMount() {
@@ -23,11 +24,13 @@ class DetailsPage extends Component {
       default:
         this.setState({ pageType: 'notes' });
     }
+
+    this.setState({ id: match.params.id });
   }
 
   render() {
-    const { pageType } = this.state;
-    return <DetailsTemplate pageType={pageType} />;
+    const { pageType, id } = this.state;
+    return <DetailsTemplate pageType={pageType} id={id} />;
   }
 }
 
@@ -36,5 +39,6 @@ export default DetailsPage;
 DetailsPage.propTypes = {
   match: PropTypes.shape({
     path: PropTypes.string.isRequired,
+    params: PropTypes.object.isRequired,
   }).isRequired,
 };

@@ -6,11 +6,10 @@ import Card from 'components/molecules/Card/Card';
 
 const Articles = ({ articles }) => {
   return (
-    <GridTemplate pageType="articles">
+    <GridTemplate>
       {articles.map(({ title, created, content, articleUrl, id }) => (
         <Card
           key={id}
-          cardType="articles"
           title={title}
           created={created}
           content={content}
